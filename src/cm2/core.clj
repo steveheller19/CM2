@@ -99,3 +99,20 @@
   (->> cm2-detailed
        (intersection slide-mask-bottom)
        (excise (translate [0 0 1.6] cavity))))
+
+
+;; If you like it then you'd better put a ring on it
+(def loop
+  (->> (circle 4)
+       (translate [10 0 0])
+       (extrude-rotate)
+       (rotate  (/ Math/PI  2) [0 1 0])))
+
+;; CM2 earing
+(def cm2-ring
+  (->> loop
+       (trans3 (+ cubie-len half-gut))
+       (translate [0 0 (+ cubie-len half-gut)])
+       (union cm2)
+       (scale3 0.25)
+       ))
