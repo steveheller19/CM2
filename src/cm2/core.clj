@@ -15,7 +15,7 @@
 (def grill-hi  half-gut)
 
 (def inner-cube
-  (->> (cube base-len base-len (- cm2-hi gut-len) :center false))
+  (->> (cube base-len base-len (- cm2-hi gut-len) :center false)
        (translate [(/ gut-len 2)(/ gut-len 2) 0])))
 
 (def cm2
