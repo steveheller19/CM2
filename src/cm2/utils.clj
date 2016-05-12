@@ -11,16 +11,6 @@
   [& nodes]
   (difference (last nodes) (drop-last nodes)))
 
-(defn mirror-xy "reflect along plane defined by x=y"
-  [q]
-  (->> q
-       (mirror [1 1 0])
-       (rotate Math/PI [0 0 1])))
-
-(defn cube-translate [x y z offset]
-  (->> (cube x y z :center false)
-       (translate offset)))
-
 (defn text3D "generate bold text, and extrude. Double height to add or subtract"
   [txt siz hi plane
    & {:keys [halign valign angle shift font offset-thick]

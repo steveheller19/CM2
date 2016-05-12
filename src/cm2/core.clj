@@ -15,7 +15,8 @@
 (def grill-hi  half-gut)
 
 (def inner-cube
-  (cube-translate base-len base-len (- cm2-hi gut-len) [(/ gut-len 2)(/ gut-len 2) 0]))
+  (->> (cube base-len base-len (- cm2-hi gut-len) :center false))
+       (translate [(/ gut-len 2)(/ gut-len 2) 0])))
 
 (def cm2
   (->> (cube cubie-len cubie-len cubie-len)
@@ -89,7 +90,8 @@
         cav-len   (- base-len (* 2 cav-thick))
         cav-hi    (- cm2-hi gut-len (* 2 cav-thick))
         cav-shift (+ half-gut cav-thick)]
-    (cube-translate cav-len cav-len cav-hi [cav-shift cav-shift cav-thick])))
+    (->> (cube cav-len cav-len cav-hi  :center false)
+         (translate [cav-shift cav-shift cav-thick]))))
 
 (def slide-top
   (->> cm2-detailed
